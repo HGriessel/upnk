@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://drp4jmcyr47ja"]
+
+[ext_resource type="PackedScene" uid="uid://dxl0trrj5w8oi" path="res://interface/bar/TimerBar/timer_bar.tscn" id="1_51vhg"]
+[ext_resource type="PackedScene" uid="uid://cy0gxdseddenj" path="res://interface/counter/Rupee/rupee_counter.tscn" id="2_heh6h"]
+
+[node name="Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 568.0
+offset_bottom = 61.0
+
+[node name="TimerBar" parent="VBoxContainer" instance=ExtResource("1_51vhg")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 56.0
+grow_horizontal = 0
+
+[node name="RupeeCounter" parent="HBoxContainer" instance=ExtResource("2_heh6h")]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2

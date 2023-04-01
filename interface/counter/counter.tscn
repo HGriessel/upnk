@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://0b2lac3t44c8"]
+
+[ext_resource type="Texture2D" uid="uid://bxvdv23p11p84" path="res://interface/counter/label_bg.png" id="1_72277"]
+[ext_resource type="Texture2D" uid="uid://cds84y0g0i038" path="res://interface/counter/icon.png" id="2_oo2bn"]
+
+[node name="Counter" type="NinePatchRect"]
+custom_minimum_size = Vector2(130, 2.08165e-12)
+offset_right = 82.0
+offset_bottom = 40.0
+texture = ExtResource("1_72277")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -21.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_oo2bn")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 51.0
+offset_bottom = 19.0
+grow_vertical = 2
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

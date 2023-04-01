@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bysr66fmkhwdj"]
+
+[ext_resource type="Texture2D" uid="uid://cds84y0g0i038" path="res://interface/counter/icon.png" id="1_s0d67"]
+
+[sub_resource type="Curve" id="Curve_j2200"]
+min_value = -360.0
+_data = [Vector2(0.00701017, 16.4461), 0.0, 0.0, 0, 0, Vector2(0.997056, -3.05176e-05), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wlig8"]
+curve = SubResource("Curve_j2200")
+
+[sub_resource type="Curve" id="Curve_ygo2f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.317265), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jc06l"]
+curve = SubResource("Curve_ygo2f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dhemy"]
+emission_shape = 3
+emission_box_extents = Vector3(60, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, 10000, 2.08165e-12)
+spread = 180.0
+gravity = Vector3(2.08165e-12, 500, 2.08165e-12)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 2.08167e-15
+linear_accel_max = 20.0
+angle_max = 45.0
+angle_curve = SubResource("CurveTexture_wlig8")
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_jc06l")
+
+[node name="RupeeEmiter" type="Node2D"]
+
+[node name="GpuParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_dhemy")
+texture = ExtResource("1_s0d67")
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.22
+randomness = 0.06

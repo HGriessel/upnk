@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dv0ieswgn5fdv"]
+
+[ext_resource type="FontFile" uid="uid://edd24q473sq2" path="res://interface/theme/font/Comfortaa-Bold.ttf" id="1_a21hw"]
+
+[resource]
+Label/colors/font_color = Color(1, 0.984314, 0.984314, 1)
+Label/font_sizes/font_size = 17
+Label/fonts/font = ExtResource("1_a21hw")

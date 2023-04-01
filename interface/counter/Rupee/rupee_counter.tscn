@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy0gxdseddenj"]
+
+[ext_resource type="PackedScene" uid="uid://0b2lac3t44c8" path="res://interface/counter/counter.tscn" id="1_mb8fg"]
+[ext_resource type="Theme" uid="uid://dv0ieswgn5fdv" path="res://interface/theme/default_theme.tres" id="2_341s7"]
+[ext_resource type="Script" path="res://interface/counter/Rupee/rupee_counter.gd" id="2_ijy5n"]
+
+[node name="RupeeCounter" instance=ExtResource("1_mb8fg")]
+offset_right = 74.0
+offset_bottom = 24.0
+script = ExtResource("2_ijy5n")
+
+[node name="Icon" parent="." index="0"]
+offset_left = -47.0
+offset_top = -23.0
+offset_right = 3.0
+offset_bottom = 24.0
+
+[node name="Label" parent="." index="1"]
+offset_left = 1.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 12.0
+theme = ExtResource("2_341s7")

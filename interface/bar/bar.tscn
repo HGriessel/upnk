@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwucpw5mhvypf"]
+
+[ext_resource type="Texture2D" uid="uid://bxvdv23p11p84" path="res://interface/counter/label_bg.png" id="1_j3l5v"]
+[ext_resource type="Texture2D" uid="uid://b21i1mi7ijckn" path="res://interface/bar/bg.png" id="1_oybhk"]
+[ext_resource type="Texture2D" uid="uid://byewmjas5gi3n" path="res://interface/bar/label_HP.png" id="2_4oatr"]
+[ext_resource type="Texture2D" uid="uid://duciscpwxc737" path="res://interface/bar/fill.png" id="2_h86lm"]
+
+[node name="Bar" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Counter" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(160, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("1_j3l5v")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Icon" type="TextureRect" parent="Counter"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -20.5
+offset_right = 68.7917
+offset_bottom = 20.5
+grow_vertical = 2
+texture = ExtResource("2_4oatr")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Counter"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -25.5
+offset_bottom = 26.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "30/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+value = 30.0
+texture_under = ExtResource("1_oybhk")
+texture_progress = ExtResource("2_h86lm")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://du3g8j67mivse"]
+
+[ext_resource type="Script" path="res://GameObjects/game_time_out.gd" id="1_n2gid"]
+
+[node name="GameTimeOut" type="Timer"]
+script = ExtResource("1_n2gid")
