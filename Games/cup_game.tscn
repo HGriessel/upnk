@@ -2326,6 +2326,7 @@ offset_bottom = 50.0
 metadata/_edit_lock_ = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_jklgv")]
+visible = false
 layout_mode = 1
 
 [node name="GameOverMenu" parent="." instance=ExtResource("10_r8qjx")]

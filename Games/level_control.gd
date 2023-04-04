@@ -9,7 +9,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_P:
-		puase_menu.visible = true
+		puase_menu.visible = !puase_menu.visible 
 		get_tree().paused = !get_tree().paused
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
