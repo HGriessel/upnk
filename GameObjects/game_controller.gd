@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var game_timeout_timer = $GameTimeOut
 
+signal game_timed_out
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,9 +21,8 @@ func _process(_delta):
 
 
 func _on_game_time_out_timeout():
-	reset_game()
+	emit_signal("game_timed_out")
 
 
-func reset_game():
-	Global.score = 0
-	get_tree().reload_current_scene()
+
+	

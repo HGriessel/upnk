@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://vqedpfmixljw"]
+
+[ext_resource type="Theme" uid="uid://dv0ieswgn5fdv" path="res://interface/theme/default_theme.tres" id="1_wi6yp"]
+[ext_resource type="Script" path="res://interface/PuaseMenu/pause_menu.gd" id="1_yn6i8"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yn6i8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -40.5
+offset_right = 79.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wi6yp")
+text = "Continue"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -665.0
+offset_right = 665.0
+offset_bottom = 418.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "PAUSED
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

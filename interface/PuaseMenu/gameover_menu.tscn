@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://ihlr2734i0ww"]
+
+[ext_resource type="Script" path="res://interface/PuaseMenu/gameover_menu.gd" id="1_avobn"]
+[ext_resource type="Theme" uid="uid://dv0ieswgn5fdv" path="res://interface/theme/default_theme.tres" id="2_wo6g5"]
+
+[node name="GameOverMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avobn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 0.47451)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -40.5
+offset_right = 79.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wo6g5")
+text = "Restart"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -665.0
+offset_right = 665.0
+offset_bottom = 418.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = 264.0
+offset_right = 39.0
+offset_bottom = 290.0
+grow_horizontal = 2
+text = "SCORE: 10"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
