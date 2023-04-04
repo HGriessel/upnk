@@ -2251,6 +2251,7 @@ offset_bottom = 696.0
 script = ExtResource("1_8ksw4")
 
 [node name="game_controller" parent="." instance=ExtResource("5_evrer")]
+process_mode = 1
 position = Vector2(918, 111)
 
 [node name="CupGame" type="Node2D" parent="."]
