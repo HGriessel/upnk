@@ -14,6 +14,7 @@
 
 ## nice to have
 
+- animated clouds in windows
 
 
 ## Baltus notes
