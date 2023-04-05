@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7aydhtstj5qx"
-path="res://.godot/imported/Door In (78x58).png-a99e64ac907b34258fb745c78fb17a93.ctex"
+path="res://.godot/imported/Door In (78x58).png-80f83394867cce70f99991d56195c5f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kings and Pigs/Sprites/01-King Human/Door In (78x58).png"
-dest_files=["res://.godot/imported/Door In (78x58).png-a99e64ac907b34258fb745c78fb17a93.ctex"]
+source_file="res://Games/Door In (78x58).png"
+dest_files=["res://.godot/imported/Door In (78x58).png-80f83394867cce70f99991d56195c5f6.ctex"]
 
 [params]
 
