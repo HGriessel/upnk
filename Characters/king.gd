@@ -1,5 +1,12 @@
 extends Node2D
 
+enum State {
+  IDLE,
+  ATACKING,
+}
+
+var current_state = State.IDLE
+
 signal attacked
 
 var can_attack = false
@@ -7,7 +14,7 @@ var pig_is_moving = false
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state_machine = animation_tree.get("parameters/playback")
-
+@onready var audio_player = $AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_state_machine.travel("idle")
@@ -16,6 +23,8 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and can_attack:
 		animation_state_machine.travel("attack")
+		audio_player.pitch_scale = randf_range(0.75,2) # Based this on power of hit
+		audio_player.play()
 		#animation_tree.set("parameters/Attack/blend_position",Vector2(1,1))
 		#emit_signal("attacked")
 

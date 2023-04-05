@@ -2,8 +2,13 @@
 
 ## must have
 
-- Title menu
+- screen shake
+- king state machine
+- pig  state machine
 - sfx
+	- hammer hit
+	- pig land 
+	- pig bump
 - background music
 - level or progression
 	- collect gems to buy upgrades help with progression 
@@ -30,3 +35,17 @@
 ## Baltus notes
 
 ## Griessel notes
+
+## Music notes 
+
+Celtic techno mix 
+- sometthing like [this](https://www.youtube.com/watch?v=uwOGNBoMdSU&list=PLUHBpLgBFeFGWhTQu3UePpw3gQFrkBrUm)
+- or even hardstyle remixes
+	- [Song for entry level](https://www.youtube.com/watch?v=R2SIzfZwLLo)
+	- [](https://www.youtube.com/watch?v=uwOGNBoMdSU&list=PLUHBpLgBFeFGWhTQu3UePpw3gQFrkBrUm)
+	- [Electro Celtic playlist](https://www.youtube.com/watch?v=DHAiOGiYOUA&list=PLUHBpLgBFeFGWhTQu3UePpw3gQFrkBrUm&index=2) 
+
+
+## resources
+
+https://godotengine.org/qa/80355/where-to-find-free-to-use-music-and-sound-effects

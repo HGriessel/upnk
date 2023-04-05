@@ -456,22 +456,6 @@ texture = ExtResource("4_lmbql")
 sources/0 = SubResource("TileSetAtlasSource_2l8af")
 sources/1 = SubResource("TileSetAtlasSource_7tb7u")
 
-[sub_resource type="Animation" id="Animation_bc668"]
-resource_name = "pig_dead_idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_bbnei"]
 length = 0.001
 tracks/0/type = "value"
@@ -513,6 +497,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_bc668"]
+resource_name = "pig_dead_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wmgeh"]
