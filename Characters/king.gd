@@ -23,7 +23,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and can_attack:
 		animation_state_machine.travel("attack")
-		audio_player.pitch_scale = randf_range(0.75,2) # Based this on power of hit
+		audio_player.pitch_scale = randf_range(0.75,1.5) # Based this on power of hit
 		audio_player.play()
 		#animation_tree.set("parameters/Attack/blend_position",Vector2(1,1))
 		#emit_signal("attacked")

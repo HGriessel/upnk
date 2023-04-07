@@ -3,8 +3,8 @@ extends RigidBody2D
 signal not_moving
 signal moving
 
-@export var min_flip_power:int = 200
-@export var max_flip_power:int = 700
+@export var min_flip_power:int = 1500
+@export var max_flip_power:int = 2000
 
 @onready var sprite = $air
 @onready var area2d = $Area2D
@@ -64,7 +64,7 @@ func apply_attack():
 func landed_on_crown():
 	emit.emitting = true
 	Global.score = Global.score + 1
-	apply_impulse(Vector2(90,-700))
+	apply_impulse(Vector2(90,-max_flip_power))
 
 func _on_not_moving():
 	pass # Replace with function body.

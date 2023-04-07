@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c84vn63erbhbq"]
+[gd_scene load_steps=15 format=3 uid="uid://c84vn63erbhbq"]
 
 [ext_resource type="Script" path="res://Games/level_control.gd" id="1_8ksw4"]
 [ext_resource type="Texture2D" uid="uid://b2h3cxrrdwkcf" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="1_us2pc"]
 [ext_resource type="Texture2D" uid="uid://ckh4e430kj1cm" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="2_3oikm"]
+[ext_resource type="Script" path="res://Games/CupGame.gd" id="3_g1bta"]
 [ext_resource type="PackedScene" uid="uid://0fd6jmyml4ic" path="res://Characters/pig.tscn" id="3_mi7kx"]
 [ext_resource type="PackedScene" uid="uid://cmft7avuffky4" path="res://GameObjects/game_controller.tscn" id="5_evrer"]
 [ext_resource type="Texture2D" uid="uid://tqmsj1fqoecs" path="res://Kings and Pigs/Sprites/08-Box/Idle.png" id="5_uten5"]
@@ -1380,6 +1381,8 @@ position = Vector2(918, 111)
 process_mode = 1
 y_sort_enabled = true
 position = Vector2(2.08165e-12, 50)
+script = ExtResource("3_g1bta")
+SHAKE_DECAY_RATE = 8.0
 
 [node name="Pillars" type="Node" parent="CupGame"]
 
@@ -1458,5 +1461,6 @@ layout_mode = 1
 [connection signal="game_timed_out" from="game_controller" to="." method="_on_game_controller_game_timed_out"]
 [connection signal="moving" from="CupGame/pig" to="CupGame/King" method="_on_pig_moving"]
 [connection signal="not_moving" from="CupGame/pig" to="CupGame/King" method="_on_pig_not_moving"]
+[connection signal="attacked" from="CupGame/King" to="CupGame" method="_on_king_attacked"]
 [connection signal="attacked" from="CupGame/King" to="CupGame/pig" method="_on_king_attacked"]
 [connection signal="restart_btn_presed" from="GameOverMenu" to="." method="_on_game_over_menu_restart_btn_presed"]
