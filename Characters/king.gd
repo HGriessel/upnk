@@ -36,16 +36,9 @@ func _process(delta):
 	pass
 
 
-func _on_pig_not_moving():
-	can_attack = true
-	pass # Replace with function body.
 
 func emit_attacked():
 	emit_signal("attacked", randi_range(min_force,max_force))
-
-func _on_pig_moving():
-	can_attack = false
-	pass # Replace with function body.
 
 func switch_to_idle():
 	animation_state_machine.travel("idle")
@@ -53,6 +46,6 @@ func switch_to_idle():
 #func _on_animation_player_animation_finished(anim_name):
 #	animation_state_machine.travel("idle")
 
-func _on_king_pig_in_motion_signal():
-	can_attack = false
+func _on_king_pig_in_motion_signal(is_moving):
+	can_attack = !is_moving
 	pass # Replace with function body.

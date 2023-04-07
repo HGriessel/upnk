@@ -15,7 +15,7 @@ const STATE := {
 
 var current_state = STATE.IDLE
 
-signal in_motion_signal
+signal in_motion_signal(is_moving)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +33,6 @@ func _process(delta):
 		STATE.IDLE:
 			pass
 		STATE.IN_MOTION:
-			emit_signal("in_motion_signal")
 			pass
 		STATE.ON_HEAD:
 			apply_impulse(
@@ -42,6 +41,8 @@ func _process(delta):
 			rupee_emiter.emitting = true
 			Global.score = Global.score + 1
 			pass
+	
+	emit_signal("in_motion_signal", current_state == STATE.IN_MOTION)
 
 
 
