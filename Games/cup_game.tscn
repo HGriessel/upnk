@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c84vn63erbhbq"]
+[gd_scene load_steps=16 format=3 uid="uid://c84vn63erbhbq"]
 
 [ext_resource type="Script" path="res://Games/level_control.gd" id="1_8ksw4"]
 [ext_resource type="Texture2D" uid="uid://b2h3cxrrdwkcf" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="1_us2pc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dgh6i6ryciion" path="res://Characters/king.tscn" id="7_ofpvw"]
 [ext_resource type="PackedScene" uid="uid://vqedpfmixljw" path="res://interface/PuaseMenu/pause_menu.tscn" id="9_jklgv"]
 [ext_resource type="PackedScene" uid="uid://ihlr2734i0ww" path="res://interface/PuaseMenu/gameover_menu.tscn" id="10_r8qjx"]
+[ext_resource type="PackedScene" uid="uid://t18bub1hyls6" path="res://Characters/king_pig.tscn" id="12_mujjx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuc2o"]
 texture = ExtResource("1_us2pc")
@@ -1437,12 +1438,17 @@ anchor_mode = 0
 zoom = Vector2(3, 3)
 
 [node name="pig" parent="CupGame" instance=ExtResource("3_mi7kx")]
+visible = false
 position = Vector2(546, 392)
 contact_monitor = true
 
 [node name="King" parent="CupGame" instance=ExtResource("7_ofpvw")]
 z_index = -1
 position = Vector2(173, 536)
+
+[node name="king_pig" parent="CupGame" instance=ExtResource("12_mujjx")]
+position = Vector2(741, 303)
+rotation = 3.06131
 
 [node name="Interface" parent="." instance=ExtResource("6_ik6pj")]
 layout_mode = 1
@@ -1462,5 +1468,6 @@ layout_mode = 1
 [connection signal="moving" from="CupGame/pig" to="CupGame/King" method="_on_pig_moving"]
 [connection signal="not_moving" from="CupGame/pig" to="CupGame/King" method="_on_pig_not_moving"]
 [connection signal="attacked" from="CupGame/King" to="CupGame" method="_on_king_attacked"]
-[connection signal="attacked" from="CupGame/King" to="CupGame/pig" method="_on_king_attacked"]
+[connection signal="attacked" from="CupGame/King" to="CupGame/king_pig" method="_on_king_attacked"]
+[connection signal="in_motion_signal" from="CupGame/king_pig" to="CupGame/King" method="_on_king_pig_in_motion_signal"]
 [connection signal="restart_btn_presed" from="GameOverMenu" to="." method="_on_game_over_menu_restart_btn_presed"]

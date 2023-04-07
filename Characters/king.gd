@@ -5,9 +5,12 @@ enum State {
   ATACKING,
 }
 
+@export var min_force = 200	
+@export var max_force = 500
+
 var current_state = State.IDLE
 
-signal attacked
+signal attacked(force)
 
 var can_attack = false
 var pig_is_moving = false
@@ -38,7 +41,7 @@ func _on_pig_not_moving():
 	pass # Replace with function body.
 
 func emit_attacked():
-	emit_signal("attacked")
+	emit_signal("attacked", randi_range(min_force,max_force))
 
 func _on_pig_moving():
 	can_attack = false
@@ -50,4 +53,6 @@ func switch_to_idle():
 #func _on_animation_player_animation_finished(anim_name):
 #	animation_state_machine.travel("idle")
 
-
+func _on_king_pig_in_motion_signal():
+	can_attack = false
+	pass # Replace with function body.

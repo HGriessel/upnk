@@ -2,16 +2,19 @@
 
 ## must have
 
-- screen shake
+
 - king state machine
-- pig  state machine
+
 - sfx
-	- hammer hit
 	- pig land 
 	- pig bump
+
 - background music
+
 - level or progression
 	- collect gems to buy upgrades help with progression 
+
+- fix rupee emitter not emitting when landing on head twice in row 
 
 
 ## should have 
@@ -25,6 +28,11 @@
 	- back button to go to previos menu main,pause or game over
 - pause and game over scene neeeds quit button
 
+## could have
+
+- pig better state machine
+- sfx
+	- better hammer hit
 ## nice to have
 
 - animated clouds in windows

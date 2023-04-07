@@ -41,7 +41,7 @@ func get_noise_offset(delta: float):
 		noise.get_noise_2d(100,noise_i)*shake_strength
 	)
 
-func _on_king_attacked():
+func _on_king_attacked(_force):
 	apply_shake()
 	pass # Replace with function body.
 

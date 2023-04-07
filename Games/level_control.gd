@@ -8,6 +8,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
+	if  event is InputEventKey and event.pressed and event.keycode == KEY_R:
+		get_tree().reload_current_scene()
 	if event is InputEventKey and event.pressed and event.keycode == KEY_P:
 		puase_menu.visible = !puase_menu.visible 
 		get_tree().paused = !get_tree().paused
