@@ -615,6 +615,7 @@ theme = ExtResource("2_n5i13")
 text = "New Game"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_n5i13")
 text = "Options"

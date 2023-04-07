@@ -4,14 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://bysr66fmkhwdj" path="res://GameObjects/emitters/rupee_emiter.tscn" id="2_3lwj2"]
 [ext_resource type="Texture2D" uid="uid://c8b022qmq8awt" path="res://Kings and Pigs/Sprites/02-King Pig/Idle (38x28).png" id="2_w3c3y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3nq5"]
-size = Vector2(47, 67)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byuo0"]
+size = Vector2(66, 48)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spbfx"]
 radius = 4.0
 height = 40.0
 
 [node name="king_pig" type="RigidBody2D" groups=["enemies"]]
+collision_mask = 3
 script = ExtResource("1_5serj")
 
 [node name="idle" type="Sprite2D" parent="."]
@@ -21,8 +22,9 @@ texture = ExtResource("2_w3c3y")
 hframes = 12
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(10.5, 22.5)
-shape = SubResource("RectangleShape2D_t3nq5")
+position = Vector2(11, 23)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_byuo0")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Crown" type="Area2D" parent="."]

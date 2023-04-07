@@ -9,6 +9,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	progress_bar.value = Global.game_time_left
 	pass

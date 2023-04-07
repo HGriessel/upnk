@@ -23,7 +23,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if abs(get_linear_velocity().x) > max_speed or abs(get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
 		new_speed *= max_speed
@@ -48,8 +48,7 @@ func _process(delta):
 
 func _on_king_attacked(force):
 	if current_state != STATE.IN_MOTION:
-		apply_impulse( 
-			Vector2(randf_range(-1,1),-1)* force)
+		apply_impulse(Vector2(randf_range(-1,1),-1* force))
 
 
 func is_in_motion():
@@ -68,6 +67,6 @@ func get_current_state():
 	else:
 		#if not in motion there is possibilty that pig could have landed on crown
 		var number_overlapping_bodies_with_crown = crown_area.get_overlapping_bodies().size()
-		if number_overlapping_bodies_with_crown:
+		if number_overlapping_bodies_with_crown > 0:
 			return STATE.ON_HEAD
 		return STATE.IDLE

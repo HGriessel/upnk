@@ -1,14 +1,14 @@
 extends Node2D
 
-enum State {
-  IDLE,
-  ATACKING,
+const  STATE = {
+  IDLE = "IDLE",
+  ATTACKING = "ATTACKING",
 }
 
-@export var min_force = 200	
-@export var max_force = 500
+@export var min_force = 700	
+@export var max_force = 700
 
-var current_state = State.IDLE
+var current_state = STATE.IDLE
 
 signal attacked(force)
 
@@ -28,24 +28,25 @@ func _input(event):
 		animation_state_machine.travel("attack")
 		audio_player.pitch_scale = randf_range(0.75,1.5) # Based this on power of hit
 		audio_player.play()
-		#animation_tree.set("parameters/Attack/blend_position",Vector2(1,1))
-		#emit_signal("attacked")
+		current_state = STATE.ATTACKING
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
+func _process(_delta):
+	match current_state:
+		STATE.IDLE:
+			pass
+		STATE.ATTACKING:
+			pass
 
 func emit_attacked():
 	emit_signal("attacked", randi_range(min_force,max_force))
 
 func switch_to_idle():
 	animation_state_machine.travel("idle")
-
-#func _on_animation_player_animation_finished(anim_name):
-#	animation_state_machine.travel("idle")
+	current_state = STATE.IDLE
 
 func _on_king_pig_in_motion_signal(is_moving):
 	can_attack = !is_moving
-	pass # Replace with function body.
+
