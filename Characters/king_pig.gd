@@ -8,7 +8,7 @@ const STATE := {
 }
 
 @export var crown_bounce_force: int = 500
-@export var max_speed = 500
+@export var max_speed = 1000
 
 @onready var crown_area = $Crown
 @onready var rupee_emiter = $RupeeEmiter/GpuParticles2D
@@ -17,12 +17,11 @@ var current_state = STATE.IDLE
 
 signal in_motion_signal(is_moving)
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if abs(get_linear_velocity().x) > max_speed or abs(get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
