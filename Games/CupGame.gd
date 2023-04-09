@@ -17,6 +17,7 @@ var shake_strength: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Events.connect("king_attacked",_on_king_attacked)
 	rand.randomize()
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.seed = rand.randi()
@@ -28,6 +29,7 @@ func _ready():
 func _process(delta):
 	shake_strength = lerp(shake_strength , 0.0, SHAKE_DECAY_RATE * delta)
 	camera.offset = get_noise_offset(delta)
+	print(camera.offset)
 
 
 func apply_shake():
@@ -41,7 +43,7 @@ func get_noise_offset(delta: float):
 		noise.get_noise_2d(100,noise_i)*shake_strength
 	)
 
-func _on_king_attacked(_force):
+func _on_king_attacked(_force,_critical_strike):
 	apply_shake()
 	pass # Replace with function body.
 

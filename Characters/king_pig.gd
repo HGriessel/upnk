@@ -48,7 +48,7 @@ func _process(_delta):
 
 
 
-func _on_king_attacked(force,critical_hit):
+func _on_king_attacked(force,_critical_hit):
 	if current_state != STATE.IN_MOTION:
 		apply_impulse(Vector2(randf_range(-1,1),-1* force))
 

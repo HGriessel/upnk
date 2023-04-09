@@ -20,7 +20,7 @@ func _on_button_pressed():
 
 
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://Games/cup_game.tscn")
+	SceneTransition.change_scene("res://Games/cup_game.tscn")
 
 
 
