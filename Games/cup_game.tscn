@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c84vn63erbhbq"]
+[gd_scene load_steps=17 format=3 uid="uid://c84vn63erbhbq"]
 
 [ext_resource type="Script" path="res://Games/level_control.gd" id="1_8ksw4"]
 [ext_resource type="Texture2D" uid="uid://b2h3cxrrdwkcf" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="1_us2pc"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ihlr2734i0ww" path="res://interface/PuaseMenu/gameover_menu.tscn" id="10_r8qjx"]
 [ext_resource type="PackedScene" uid="uid://t18bub1hyls6" path="res://Characters/king_pig.tscn" id="12_mujjx"]
 [ext_resource type="PackedScene" uid="uid://c7jxcpgn7biw1" path="res://GameObjects/hitbar/hit_bar.tscn" id="12_rrwje"]
+[ext_resource type="PackedScene" uid="uid://b1ncmbw60ws20" path="res://GameObjects/count_down.tscn" id="13_7j4ih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuc2o"]
 texture = ExtResource("1_us2pc")
@@ -2337,6 +2338,9 @@ layout_mode = 1
 
 [node name="GameOverMenu" parent="." instance=ExtResource("10_r8qjx")]
 z_as_relative = false
+layout_mode = 1
+
+[node name="CountDown" parent="." instance=ExtResource("13_7j4ih")]
 layout_mode = 1
 
 [connection signal="game_timed_out" from="game_controller" to="." method="_on_game_controller_game_timed_out"]
