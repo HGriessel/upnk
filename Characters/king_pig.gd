@@ -15,14 +15,17 @@ const STATE := {
 
 var current_state = STATE.IDLE
 
-signal in_motion_signal(is_moving)
+
+
 
 
 func _ready():
+	Events.connect("king_attacked",_on_king_attacked)
 	pass 
 
 
 func _process(_delta):
+
 	if abs(get_linear_velocity().x) > max_speed or abs(get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
 		new_speed *= max_speed
@@ -41,13 +44,15 @@ func _process(_delta):
 			Global.score = Global.score + 1
 			pass
 	
-	emit_signal("in_motion_signal", current_state == STATE.IN_MOTION)
+	Events.emit_signal("king_pig_in_motion_signal", current_state == STATE.IN_MOTION)
 
 
 
-func _on_king_attacked(force):
+func _on_king_attacked(force,critical_hit):
 	if current_state != STATE.IN_MOTION:
 		apply_impulse(Vector2(randf_range(-1,1),-1* force))
+
+		
 
 
 func is_in_motion():

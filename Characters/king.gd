@@ -9,9 +9,6 @@ const  STATE = {
 @export var max_force = 700
 
 var current_state = STATE.IDLE
-
-signal attacked(force)
-
 var can_attack = false
 
 @onready var animation_tree = $AnimationTree
@@ -22,6 +19,7 @@ var can_attack = false
 # Called when the node enters the scene tree for thxe first time.
 func _ready():
 	animation_state_machine.travel("idle")
+	Events.connect('king_pig_in_motion_signal',_on_king_pig_in_motion_signal)
 	pass # Replace with function body.
 
 func _input(event):
@@ -45,9 +43,9 @@ func _process(_delta):
 func emit_attacked():
 	if hitbar.is_in_hit_area():
 		print("critical hit")
-		emit_signal("attacked",max_force)
+		Events.emit_signal("king_attacked",max_force,hitbar.is_in_hit_area())
 	else:
-		emit_signal("attacked",min_force)
+		Events.emit_signal("king_attacked",min_force,hitbar.is_in_hit_area())
 
 func switch_to_idle():
 	animation_state_machine.travel("idle")

@@ -2265,25 +2265,25 @@ SHAKE_DECAY_RATE = 8.0
 
 [node name="Idle2" type="Sprite2D" parent="CupGame/Pillars"]
 z_index = -2
-position = Vector2(426, 584.75)
+position = Vector2(426, 535)
 scale = Vector2(1, 5.53125)
 texture = ExtResource("5_uten5")
 
 [node name="Idle4" type="Sprite2D" parent="CupGame/Pillars"]
 z_index = -2
-position = Vector2(232, 584.25)
+position = Vector2(232, 535)
 scale = Vector2(1, 5.59375)
 texture = ExtResource("5_uten5")
 
 [node name="Idle3" type="Sprite2D" parent="CupGame/Pillars"]
 z_index = -2
-position = Vector2(627, 584)
+position = Vector2(627, 535)
 scale = Vector2(1, 5.6875)
 texture = ExtResource("5_uten5")
 
 [node name="Idle5" type="Sprite2D" parent="CupGame/Pillars"]
 z_index = -2
-position = Vector2(822, 584.75)
+position = Vector2(822, 535)
 scale = Vector2(1, 5.53125)
 texture = ExtResource("5_uten5")
 
@@ -2340,8 +2340,4 @@ z_as_relative = false
 layout_mode = 1
 
 [connection signal="game_timed_out" from="game_controller" to="." method="_on_game_controller_game_timed_out"]
-[connection signal="attacked" from="CupGame/King" to="CupGame" method="_on_king_attacked"]
-[connection signal="attacked" from="CupGame/King" to="CupGame/King/HitBar" method="_on_king_attacked"]
-[connection signal="attacked" from="CupGame/King" to="CupGame/king_pig" method="_on_king_attacked"]
-[connection signal="in_motion_signal" from="CupGame/king_pig" to="CupGame/King" method="_on_king_pig_in_motion_signal"]
 [connection signal="restart_btn_presed" from="GameOverMenu" to="." method="_on_game_over_menu_restart_btn_presed"]
