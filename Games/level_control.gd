@@ -4,7 +4,8 @@ extends Control
 @onready var game_over_menu = $GameOverMenu
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Events.connect("count_down_timeout")
+	get_tree().paused = true
+	Events.connect("count_down_timeout",on_count_down_timeout)
 	puase_menu.visible = false
 	pass # Replace with function body.
 
@@ -31,6 +32,9 @@ func game_over():
 	get_tree().paused = !get_tree().paused
 	
 
+func on_count_down_timeout():
+	get_tree().paused = false
+	pass
 
 func _on_game_over_menu_restart_btn_presed():
 	Global.score = 0
