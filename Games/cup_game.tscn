@@ -2325,6 +2325,7 @@ scale = Vector2(0.0833333, 0.0833333)
 
 [node name="king_pig" parent="CupGame" instance=ExtResource("12_mujjx")]
 position = Vector2(741, 303)
+rotation = 3.14159
 
 [node name="Interface" parent="." instance=ExtResource("6_ik6pj")]
 layout_mode = 1

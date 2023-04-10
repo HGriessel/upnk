@@ -1,6 +1,6 @@
 extends Control
 
-@export var count_down_timer : int = 4
+@export var count_down_timer : int = 1
 
 @onready var timer = $Timer
 @onready var label = $Label

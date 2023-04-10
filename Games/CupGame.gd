@@ -29,7 +29,7 @@ func _ready():
 func _process(delta):
 	shake_strength = lerp(shake_strength , 0.0, SHAKE_DECAY_RATE * delta)
 	camera.offset = get_noise_offset(delta)
-	print(camera.offset)
+
 
 
 func apply_shake():

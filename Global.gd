@@ -15,3 +15,10 @@ var settings = {
 		"master_volume" = 100,
 	}
 }
+
+func _input(event):
+	if  event is InputEventKey and event.pressed and event.keycode == KEY_Q:
+		get_tree().quit()
+	if  event is InputEventKey and event.pressed and event.keycode == KEY_R:
+		get_tree().reload_current_scene()
+

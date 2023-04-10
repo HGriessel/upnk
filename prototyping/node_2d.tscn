@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://vfcjex3m1iax"]
+
+[ext_resource type="Shader" path="res://prototyping/node_2d.gdshader" id="1_dju8s"]
+[ext_resource type="Texture2D" uid="uid://baw8hbg25cjqo" path="res://Kings and Pigs/Sprites/02-King Pig/Ground (38x28).png" id="1_ujxjv"]
+[ext_resource type="Texture2D" uid="uid://bjrepo6kq85t6" path="res://Kings and Pigs/Sprites/02-King Pig/Fall (38x28).png" id="3_gwo8r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5t64"]
+shader = ExtResource("1_dju8s")
+shader_parameter/scale = 1.0
+shader_parameter/color = Color(0, 0.513726, 1, 1)
+shader_parameter/flashState = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Fall(38x28)" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(5, 5)
+texture = ExtResource("3_gwo8r")
+metadata/_edit_lock_ = true
+
+[node name="Ground(38x28)" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_n5t64")
+position = Vector2(49, 39)
+scale = Vector2(0.578947, 0.535714)
+texture = ExtResource("1_ujxjv")

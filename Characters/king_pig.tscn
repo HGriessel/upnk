@@ -1,39 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://t18bub1hyls6"]
+[gd_scene load_steps=11 format=3 uid="uid://t18bub1hyls6"]
 
 [ext_resource type="Script" path="res://Characters/king_pig.gd" id="1_5serj"]
 [ext_resource type="PackedScene" uid="uid://bysr66fmkhwdj" path="res://GameObjects/emitters/rupee_emiter.tscn" id="2_3lwj2"]
+[ext_resource type="Shader" path="res://Characters/king_pig.gdshader" id="2_8mcnc"]
 [ext_resource type="Texture2D" uid="uid://c8b022qmq8awt" path="res://Kings and Pigs/Sprites/02-King Pig/Idle (38x28).png" id="2_w3c3y"]
+[ext_resource type="Script" path="res://Characters/Timer.gd" id="5_6sb8v"]
+[ext_resource type="Script" path="res://Characters/RupeeTimer.gd" id="6_7mu21"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ojucb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h42q"]
+shader = ExtResource("2_8mcnc")
+shader_parameter/strength = 0.0
+shader_parameter/speed = 0.5
+shader_parameter/angle = 0.0
+shader_parameter/onoff = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byuo0"]
 size = Vector2(66, 48)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spbfx"]
-radius = 8.0
-height = 40.0
+radius = 3.0
+height = 46.0
 
 [node name="king_pig" type="RigidBody2D" groups=["enemies"]]
 collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_ojucb")
 script = ExtResource("1_5serj")
 
 [node name="idle" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2h42q")
 position = Vector2(7, 2)
 scale = Vector2(4, 4)
 texture = ExtResource("2_w3c3y")
 hframes = 12
+metadata/_edit_lock_ = true
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(11, 23)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_byuo0")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+metadata/_edit_lock_ = true
 
 [node name="Crown" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crown"]
-position = Vector2(10, -19)
+position = Vector2(10, -14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_spbfx")
 debug_color = Color(0.968627, 0, 0.458824, 0.419608)
 
 [node name="RupeeEmiter" parent="." instance=ExtResource("2_3lwj2")]
 position = Vector2(12, 2.08165e-12)
+
+[node name="RupeeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+script = ExtResource("6_7mu21")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+script = ExtResource("5_6sb8v")
+
+[connection signal="timeout" from="RupeeTimer" to="." method="_on_rupee_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
