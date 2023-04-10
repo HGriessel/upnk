@@ -2,12 +2,12 @@ extends Control
 
 @onready var puase_menu = $PauseMenu
 @onready var game_over_menu = $GameOverMenu
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	get_tree().paused = true
 	Events.connect("count_down_timeout",on_count_down_timeout)
 	puase_menu.visible = false
-	pass # Replace with function body.
 
 func _input(event):
 	if  event is InputEventKey and event.pressed and event.keycode == KEY_Q:
@@ -18,9 +18,6 @@ func _input(event):
 		puase_menu.visible = !puase_menu.visible 
 		get_tree().paused = !get_tree().paused
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 
 func _on_game_controller_game_timed_out():
@@ -40,4 +37,4 @@ func _on_game_over_menu_restart_btn_presed():
 	Global.score = 0
 	get_tree().paused = !get_tree().paused
 	get_tree().reload_current_scene()
-	pass # Replace with function body.
+

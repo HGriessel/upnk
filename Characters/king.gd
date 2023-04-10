@@ -6,7 +6,7 @@ const  STATE = {
 }
 
 @export var min_force = 700	
-@export var max_force = 700
+@export var max_force = 1000
 
 var current_state = STATE.IDLE
 var can_attack = false
@@ -16,23 +16,24 @@ var can_attack = false
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var hitbar = $HitBar 
 
-# Called when the node enters the scene tree for thxe first time.
+
 func _ready():
 	animation_state_machine.travel("idle")
 	Events.connect('king_pig_in_motion_signal',_on_king_pig_in_motion_signal)
-	pass # Replace with function body.
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and can_attack:
 		animation_state_machine.travel("attack")
 		emit_attacked()
-		audio_player.pitch_scale = randf_range(0.75,1.5) # Based this on power of hit
+		if is_critical_hit():
+			audio_player.volume_db = 5
+		else:
+			audio_player.volume_db = -10
+		audio_player.pitch_scale = randf_range(0.75,1.5) 
 		audio_player.play()
 		current_state = STATE.ATTACKING
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	match current_state:
 		STATE.IDLE:
@@ -43,9 +44,12 @@ func _process(_delta):
 func emit_attacked():
 	if hitbar.is_in_hit_area():
 		print("critical hit")
-		Events.emit_signal("king_attacked",max_force,hitbar.is_in_hit_area())
+		Events.emit_signal("king_attacked",max_force,is_critical_hit())
 	else:
-		Events.emit_signal("king_attacked",min_force,hitbar.is_in_hit_area())
+		Events.emit_signal("king_attacked",min_force,is_critical_hit())
+
+func is_critical_hit():
+	return hitbar.is_in_hit_area()
 
 func switch_to_idle():
 	animation_state_machine.travel("idle")

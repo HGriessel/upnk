@@ -3,7 +3,9 @@ shader_type canvas_item;
 uniform float strength: hint_range(0., 1.) = 0;
 uniform float speed: hint_range(0., 10.) = 0.5;
 uniform float angle: hint_range(0., 360.) = 0.;
+uniform float grayscale: hint_range(0,1) = 0;
 uniform float onoff = 0;
+
 
 void fragment() {
 	float hue = UV.x * cos(radians(angle)) - UV.y * sin(radians(angle));
@@ -23,8 +25,17 @@ void fragment() {
 	} else {
 		rainbow = vec3(1., 0., x);
 	}
-	vec4 color = texture(TEXTURE, UV);
 	
-	COLOR = mix(color, vec4(rainbow, color.a), strength);
+	if (grayscale > 0.0){
+		vec4 pixelColor = texture(TEXTURE, UV);
+		float brightness = (pixelColor.r + pixelColor.g + pixelColor.b) /3.0;
+		vec4 grayScale = vec4(brightness,brightness,brightness,pixelColor.a);
+		COLOR = grayScale;
+		
+	} else{
+		vec4 color = texture(TEXTURE, UV);
+		COLOR = mix(color, vec4(rainbow, color.a), strength);
+	}
+
 
 }

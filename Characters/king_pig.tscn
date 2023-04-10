@@ -14,6 +14,7 @@ shader = ExtResource("2_8mcnc")
 shader_parameter/strength = 0.0
 shader_parameter/speed = 0.5
 shader_parameter/angle = 0.0
+shader_parameter/grayscale = 0.0
 shader_parameter/onoff = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byuo0"]
@@ -21,7 +22,7 @@ size = Vector2(66, 48)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spbfx"]
 radius = 3.0
-height = 46.0
+height = 40.0
 
 [node name="king_pig" type="RigidBody2D" groups=["enemies"]]
 collision_mask = 3
@@ -56,11 +57,13 @@ debug_color = Color(0.968627, 0, 0.458824, 0.419608)
 position = Vector2(12, 2.08165e-12)
 
 [node name="RupeeTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.05
 one_shot = true
 script = ExtResource("6_7mu21")
+critical_hit_time = 0.1
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 script = ExtResource("5_6sb8v")
 

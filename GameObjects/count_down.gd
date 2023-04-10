@@ -1,6 +1,6 @@
 extends Control
 
-@export var count_down_timer : int = 1
+@export var count_down_timer : int = 4
 
 @onready var timer = $Timer
 @onready var label = $Label
@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if timer.time_left < 1 :
 		label.text = "SMACK'EM"
 	

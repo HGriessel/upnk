@@ -195,10 +195,10 @@ hframes = 3
 frame = 2
 
 [node name="Idle" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, -1.33333)
 texture = ExtResource("3_2anps")
 hframes = 11
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -215,5 +215,3 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_nqqq4")
 stream = ExtResource("4_nhdui")
 volume_db = -10.0
 pitch_scale = 0.71
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
