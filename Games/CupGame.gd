@@ -19,7 +19,7 @@ var shake_strength: float = 0.0
 func _ready():
 	Events.connect("king_attacked",_on_king_attacked)
 	rand.randomize()
-	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
+	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX                                                     
 	noise.seed = rand.randi()
 	noise.frequency = 2
 	

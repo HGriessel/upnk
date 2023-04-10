@@ -8,7 +8,7 @@
 size = Vector2(66, 48)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spbfx"]
-radius = 4.0
+radius = 8.0
 height = 40.0
 
 [node name="king_pig" type="RigidBody2D" groups=["enemies"]]
@@ -30,7 +30,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Crown" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crown"]
-position = Vector2(11, -17)
+position = Vector2(10, -19)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_spbfx")
 debug_color = Color(0.968627, 0, 0.458824, 0.419608)

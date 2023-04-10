@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cya2lt7rdmrtd"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="AudioStream" uid="uid://bxtujrp54myq6" path="res://Audio/Banishment.wav" id="1_qwfvb"]
-[ext_resource type="Script" path="res://GameSound.gd" id="2_yjd73"]
+[ext_resource type="Script" path="res://GameObjects/GameSound.gd" id="2_yjd73"]
 
 [node name="GameSound" type="AudioStreamPlayer"]
 process_mode = 3
 stream = ExtResource("1_qwfvb")
-volume_db = -22.897
+volume_db = -18.552
 autoplay = true
 script = ExtResource("2_yjd73")

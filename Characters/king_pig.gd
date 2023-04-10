@@ -25,12 +25,12 @@ func _ready():
 
 
 func _process(_delta):
-
+	current_state = get_current_state()
 	if abs(get_linear_velocity().x) > max_speed or abs(get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
 		new_speed *= max_speed
 		set_linear_velocity(new_speed)
-	current_state = get_current_state()
+	
 	match current_state:
 		STATE.IDLE:
 			pass
